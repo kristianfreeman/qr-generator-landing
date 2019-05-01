@@ -10,7 +10,7 @@ const generate = () => {
       document.querySelector('#error').innerHTML = ''
     }
 
-    fetch('/generate', {
+    fetch('https://qr.signalnerve.com/generate', {
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
       body: JSON.stringify({ text: input.value }),
