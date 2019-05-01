@@ -1,6 +1,10 @@
 const reader = new FileReader()
 const input = document.querySelector('#string')
 
+// Note: change this to your deployed Workers function, or test it using
+// our version
+const workerUrl = 'https://qr.signalnerve.com/generate'
+
 const generate = () => {
   if (input.value) {
     if (input.value.length > 2953) {
@@ -10,7 +14,7 @@ const generate = () => {
       document.querySelector('#error').innerHTML = ''
     }
 
-    fetch('https://qr.signalnerve.com/generate', {
+    fetch(workerUrl, {
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
       body: JSON.stringify({ text: input.value }),
